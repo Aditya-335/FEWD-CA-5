@@ -1,0 +1,40 @@
+.App {
+    width: 100%;
+    max-width: 380px; 
+    margin: 80px auto; 
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 20px; 
+}
+
+.alert {
+    color: red;
+    margin-top: 4px;
+}
+
+form {
+    width: 100%; 
+    max-width: 350px;
+    background: cornsilk;
+    padding: 30px; 
+    border-radius: 8px;
+    box-sizing: border-box; 
+    margin: 0 auto; 
+}
+
+button {
+    border-radius: 8px;
+}
+
+body {
+    background: #0B60B0;
+}
+
+input {
+    width: 100%; 
+    max-width: 300px; 
+    height: 30px;
+    border-radius: 8px;
+    margin-bottom: 10px; 
+}

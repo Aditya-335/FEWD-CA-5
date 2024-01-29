@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+.head{
+    height:10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Register{
+    height: 6vh;
+    width: 5vw;
+}
+
+.search{
+    height:6vh;
+    width:18vw;
+}
+
+.Btn{
+    margin-right:20vw;
+    height: 6vh;
+    width:5vw;
+}
+
+
+.Btn:hover, .Register:hover{
+    background: #B80000;
+}
+
+.Btn,.Register{
+    background: #40A2D8;
+    color:#F0EDCF;
+    cursor: pointer;
+}
+
+.container{
+    width:220px;
+}
+
+nav{
+    margin-top: 0;
+    padding: 0;
+    background:#000;
+    color: red;
+}
+
+img{
+    height:300px;
+    width:220px;
+}
+
+.image:hover{
+    transition:1s;
+    transform: scale(1.02);
+}
+
+.image{
+    
+    background: #000;
+    color: #fff;
+}
+
+.cont {
+    display: flex;
+    text-align: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    border-radius: 8px;
+    gap: 40px;
+    color: #000;
+    justify-items: center; 
+    align-items: start; 
+   
+}
+
+
+@media screen and (max-width: 768px) {
+    .head {
+        flex-direction: column; 
+        height: auto; 
+        padding: 20px; 
+    }
+
+
+    .Register,
+    .search,
+    .Btn {
+        width: 100%; 
+        margin-top: 10px; 
+    }
+
+    .Btn,
+    .Register {
+        margin-right: 0;
+        
+    }
+
+    .Btn{
+       margin: 25px;
+    }
+
+    .cont {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+}
