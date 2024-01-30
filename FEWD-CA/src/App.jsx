@@ -12,13 +12,15 @@ function App(){
         </div>
         <div className='about-and-contact'>
         
-        <Link className='hi' to='/reg'><button className='Register'>Register</button></Link>
+        
+        
         </div>
       </nav>
 
       <Routes>
         <Route path='/' element={<Book/>}/>
         <Route path='/reg' element={<Form/>}/>
+        
       </Routes>
     </>
   )

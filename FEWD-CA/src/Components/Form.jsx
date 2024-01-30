@@ -1,56 +1,59 @@
-import './Form.css';
-import { useState } from 'react';
+import './Form.css'; // Importing CSS styles
+import { useEffect, useState } from 'react'; // Importing useState and useEffect hooks
+import { useNavigate } from 'react-router-dom'; // Importing useNavigate hook for navigation
 
+// Functional component for contact form
 function Contact() {
+    const navigate = useNavigate(); // Initializing useNavigate hook for navigation
+
+    // State variables for form data, validation alerts, focus state, and registration success
     const [formData, setFormData] = useState({
         firstName: "",
         email: "",
-        phoneNumber: "",
         password: "",
         confirmPassword: "",
     });
-
     const [alerts, setAlerts] = useState({
         firstName: "",
         email: "",
-        phoneNumber: "",
         password: "",
         confirmPassword: "",
     });
-
     const [focusState, setFocusState] = useState({
         firstName: false,
         email: false,
-        phoneNumber: false,
         password: false,
         confirmPassword: false,
     });
-
     const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
+    // Event handler to update form data on input change
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
 
+    // Event handler to update focus state on input focus
     const handleFocus = (name) => {
         setFocusState((prevFocusState) => ({ ...prevFocusState, [name]: true }));
     };
 
+    // Event handler to handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const newAlerts = {};
+        const newAlerts = {}; // Object to store validation alerts
+
+        // Validation checks for form fields
 
         // Check for first name
         if (formData.firstName.trim() === "") {
-            newAlerts.firstName = "Please enter your first name.";
+            newAlerts.firstName = "Please enter your name.";
         } else if (formData.firstName.trim().length < 3 || formData.firstName.trim().length > 30) {
-            newAlerts.firstName = "First name must be between 3 and 30 characters long.";
+            newAlerts.firstName = "Name must be between 3 and 30 characters long.";
         } else {
             newAlerts.firstName = "";
         }
-        
 
         // Check for email
         if (formData.email.trim() === "") {
@@ -59,15 +62,6 @@ function Contact() {
             newAlerts.email = "Please enter a valid email address.";
         } else {
             newAlerts.email = "";
-        }
-
-        // Check for phone number
-        if (formData.phoneNumber.trim() === "") {
-            newAlerts.phoneNumber = "Please enter your phone number.";
-        } else if (!/^\d{10}$/.test(formData.phoneNumber)) {
-            newAlerts.phoneNumber = "Please enter a valid phone number.";
-        } else {
-            newAlerts.phoneNumber = "";
         }
 
         // Check for password
@@ -93,11 +87,10 @@ function Contact() {
         // Update state with validation messages
         setAlerts(newAlerts);
 
-        // Check if all fields are valid
+        // If all fields are valid, set registration success to true
         if (
             newAlerts.firstName === "" &&
             newAlerts.email === "" &&
-            newAlerts.phoneNumber === "" &&
             newAlerts.password === "" &&
             newAlerts.confirmPassword === ""
         ) {
@@ -105,20 +98,37 @@ function Contact() {
         }
     };
 
+    // Effect hook to log form data when registration success state changes
+    useEffect(() => {
+        console.log(formData);
+    }, [registrationSuccess]);
+
+    // Event handler to navigate back to home page
+    const handleBack = () => {
+        navigate("/");
+    };
+
+    // JSX rendering of the contact form
     return (
         <>
+            {/* Back button for navigation */}
+            <button className='Home' onClick={handleBack}>Back</button>
+            {/* Main form section */}
             <div className='App'>
+                {/* Success message on successful registration */}
                 {registrationSuccess && (
                     <div className='success' style={{
-                        backgroundColor: 'blue', color: 'white', padding: '10px', marginTop: '10px',width:'350px', borderRadius: '8px',
+                        backgroundColor: 'blue', color: 'white', padding: '10px', marginTop: '10px',width:'340px', borderRadius: '8px',
                         textAlign: 'center'
                     }}>
                         Registration Successful!
                     </div>
                 )}
+                {/* Form */}
                 <form onSubmit={handleSubmit}>
+                    {/* Input fields for name */}
                     <label>
-                         Name:
+                        Name:
                         <input
                             type='text'
                             name='firstName'
@@ -131,6 +141,7 @@ function Contact() {
                         <div className='alert'>{alerts.firstName}</div>
                     </label>
                     <br />
+                    {/* Input fields for email */}
                     <label>
                         Email:
                         <input
@@ -145,20 +156,7 @@ function Contact() {
                         <div className='alert'>{alerts.email}</div>
                     </label>
                     <br />
-                    <label>
-                        Phone Number:
-                        <input
-                            type='tel'
-                            name='phoneNumber'
-                            value={formData.phoneNumber}
-                            onChange={handleChange}
-                            placeholder="Enter your phone Number"
-                            onFocus={() => handleFocus('phoneNumber')}
-                            style={{ borderColor: focusState.phoneNumber ? 'navy' : '#ccc' }}
-                        />
-                        <div className='alert'>{alerts.phoneNumber}</div>
-                    </label>
-                    <br />
+                    {/* Input fields for password */}
                     <label>
                         Password:
                         <input
@@ -173,6 +171,7 @@ function Contact() {
                         <div className='alert'>{alerts.password}</div>
                     </label>
                     <br />
+                    {/* Input fields for confirming password */}
                     <label>
                         Confirm Password:
                         <input
@@ -187,7 +186,8 @@ function Contact() {
                         <div className='alert'>{alerts.confirmPassword}</div>
                     </label>
                     <br />
-                    <button
+                    {/* Submit button */}
+                    <button 
                         type='submit'
                         style={{
                             backgroundColor: 'green',
@@ -205,4 +205,4 @@ function Contact() {
     );
 }
 
-export default Contact;
+export default Contact; // Exporting Contact component

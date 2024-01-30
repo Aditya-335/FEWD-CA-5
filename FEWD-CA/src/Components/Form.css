@@ -1,11 +1,16 @@
 .App {
     width: 100%;
     max-width: 380px; 
-    margin: 80px auto; 
+    margin: 50px auto; 
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 0 20px; 
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
 }
 
 .alert {
@@ -16,7 +21,8 @@
 form {
     width: 100%; 
     max-width: 350px;
-    background: cornsilk;
+    background:#000;
+    color: #fff;
     padding: 30px; 
     border-radius: 8px;
     box-sizing: border-box; 
@@ -28,7 +34,7 @@ button {
 }
 
 body {
-    background: #0B60B0;
+    background:url("https://miro.medium.com/v2/resize:fit:1200/1*6Jp3vJWe7VFlFHZ9WhSJng.jpeg");
 }
 
 input {
@@ -37,4 +43,18 @@ input {
     height: 30px;
     border-radius: 8px;
     margin-bottom: 10px; 
+}
+
+.success{
+    width:100%;
+    max-width: 350px;
+    padding: 30px;
+}
+@media screen and (max-width: 768px){
+
+.Home{
+    width: 30%;
+    margin-top: 32px;
+}
+
 }

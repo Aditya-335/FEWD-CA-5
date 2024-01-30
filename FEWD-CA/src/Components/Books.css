@@ -23,13 +23,13 @@
 }
 
 .Btn{
-    margin-right:20vw;
+    margin-right:20px;
     height: 6vh;
     width:5vw;
 }
 
 
-.Btn:hover, .Register:hover{
+.Btn:hover, .Register:hover, .Home:hover{
     background: #B80000;
 }
 
@@ -40,8 +40,19 @@
 }
 
 .container{
-    width:220px;
+    width:250px;
 }
+
+.Home{
+    height: 6vh;
+    width: 5vw;
+    background: #40A2D8;
+    color:#F0EDCF;
+    cursor: pointer;
+    margin-top: 2vh;
+    margin-left: 1vw;
+}
+
 
 nav{
     margin-top: 0;
@@ -67,8 +78,10 @@ img{
 }
 
 .cont {
+    margin-left:8vw;
     display: flex;
     text-align: center;
+    cursor: pointer;
     margin-top: 20px;
     flex-wrap: wrap;
     border-radius: 8px;
@@ -86,14 +99,18 @@ img{
         height: auto; 
         padding: 20px; 
     }
-
-
-    .Register,
+ 
+    
     .search,
     .Btn {
-        width: 100%; 
+        width:100%; 
         margin-top: 10px; 
     }
+
+    .Btn{
+       margin-bottom:40px;
+    }
+
 
     .Btn,
     .Register {
@@ -101,8 +118,24 @@ img{
         
     }
 
+    .Register{
+        width: 30%;
+        margin-top:20px;
+        margin-right:10px;
+    }
+
+    nav{
+        margin-right: 0;
+        padding: 0;
+    }
+
     .Btn{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
        margin: 25px;
+
     }
 
     .cont {
